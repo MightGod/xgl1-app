@@ -1,0 +1,24 @@
+
+<form #f="ngForm" (ngSubmit)="submitForm(f.valid)">
+
+  <div *ngFor="let textField of fieldPanel.textField; index as i">
+
+      <input type="text" [placeholder]="textField.label" [required]="textField.required" [(ngModel)]="textField.property" name="textField{{i}}" [maxlength]="textField.maxChars" [disabled]="viewMode">
+
+      <span class="error" *ngIf="textField.required && !textField.property"> Must enter a value.</span>
+
+      <span class="error" *ngIf="textField.property.length > textField.maxChars"> Maximum size is {{textField.maxChars}} (Delete {{textField.property.length - textField.maxChars}} letters).</span>
+
+   </div>
+
+    <div *ngFor="let booleanField of fieldPanel.booleanField; index as i">
+        
+        <input type="checkbox" [(ngModel)]="booleanField.property" name="booleanField{{i}}" [disabled]="viewMode">
+        <span> {{booleanField.label}}</span>
+
+    </div>
+  
+    <input type="submit" value="Submit">
+      
+  </form>
+
