@@ -1,27 +1,118 @@
-<form #f="ngForm" (ngSubmit)="submitForm(f.valid)">
+<input type="button" value="Show XGL1 Task" (click)="switchTasks()" [disabled]="firstTask" style="margin-right: 10px;">
+<input type="button" value="Show XGL2 Task" (click)="switchTasks()" [disabled]="secondTask">
 
-  <div *ngFor="let field of fieldPanel.fields; index as i">
+<!-- Here is the second task-->
 
-      <div *ngIf="field.type === 'textField'">
+<div *ngIf="secondTask">
 
-          <input type="text" [placeholder]="field.label" [required]="field.required" [(ngModel)]="field.property" name="field{{i}}" [maxlength]="field.maxChars" [disabled]="viewMode">
+  <p>
+    XGL2 Task:
+  </p>
 
-          <span class="error" *ngIf="field.required && !field.property"> Must enter a value.</span>
+  <div *ngFor="let tab of tabPanel.tab; index as t" style="display: inline-block; margin-right: 10px;">
+
+      <input type="button" value="{{tab.label}} Panel" (click)="activateTab(t)">
+
+  </div>
+
+  <form #ff="ngForm" (ngSubmit)="submitForm(ff.valid)">
+
+      <div style="width: 100%; display: table; max-width: 1000px;">
+
+          <div style="display: table-row">
+
+              <div *ngFor="let tab of tabPanel.tab; index as t" id="tab{{t}}" [style.display]="isDisplayed(t) ? 'table-cell' : 'none'">
+          
+                  <div style="width: 100%; display: table; max-width: 1000px;">
+
+                      <div style="display: table-row">
+
+                        <div *ngFor="let panel of tab.panel; index as p" id="panel{{t}}.{{p}}" style="display: table-cell">
+                          
+                          <div>{{panel.label}} Fields</div>
+
+                          <div>{{panel.fieldPanel.property}}</div>
+
+                          <div *ngFor="let field of panel.fieldPanel.fields; index as f" id="field{{t}}.{{p}}.{{f}}">
+        
+                              <div *ngIf="field.type === 'textField'">
+                
+                                  <input type="text" [placeholder]="field.label" [required]="field.required" [(ngModel)]="field.property" name="field{{f}}" [maxlength]="field.maxChars" [disabled]="viewMode">
+                      
+                                  <span class="error" *ngIf="field.required && !field.property"> Must enter a value.</span>
+                            
+                                  <span class="error" *ngIf="field.property.length > field.maxChars"> Maximum size is {{field.maxChars}} (Delete {{field.property.length - field.maxChars}} letters).</span>
+                      
+                              </div>
+                
+                              <div *ngIf="field.type === 'integerField'">
+                
+                                  <input type="number" [placeholder]="field.label" [required]="field.required" [(ngModel)]="field.property" name="field{{f}}" [maxlength]="field.maxChars" [disabled]="viewMode">
+                                  
+                              </div>
+                      
+                              <div *ngIf="field.type === 'booleanField'">
+                      
+                                  <input type="checkbox" [(ngModel)]="field.property" name="field{{i}}" [disabled]="viewMode">
+                      
+                                  <span> {{field.label}}</span>
+                      
+                              </div>
+                
+                          </div>
+
+                        </div>
+
+                      </div>
+                    
+                  </div>
+          
+              </div>
+
+          </div>
+
+      </div>
+
+    <input type="submit" value="Submit">
     
-          <span class="error" *ngIf="field.property.length > field.maxChars"> Maximum size is {{field.maxChars}} (Delete {{field.property.length - field.maxChars}} letters).</span>
+  </form>
 
-      </div>
+</div>
 
-      <div *ngIf="field.type === 'booleanField'">
+<!-- Here is the first task-->
 
-          <input type="checkbox" [(ngModel)]="field.property" name="field{{i}}" [disabled]="viewMode">
+<div *ngIf="firstTask">
 
-          <span> {{field.label}}</span>
+  <p>
+    XGL1 Task:
+  </p>
 
-      </div>
+  <form #f="ngForm" (ngSubmit)="submitForm(f.valid)">
 
-   </div>
+    <div *ngFor="let field of fieldPanel.fields; index as i" style="width: 100%; display: table; max-width: 1000px;">
 
-  <input type="submit" value="Submit">
+        <div *ngIf="field.type === 'textField'">
+
+            <input type="text" [placeholder]="field.label" [required]="field.required" [(ngModel)]="field.property" name="field{{i}}" [maxlength]="field.maxChars" [disabled]="viewMode">
+
+            <span class="error" *ngIf="field.required && !field.property"> Must enter a value.</span>
       
-</form>
+            <span class="error" *ngIf="field.property.length > field.maxChars"> Maximum size is {{field.maxChars}} (Delete {{field.property.length - field.maxChars}} letters).</span>
+
+        </div>
+
+        <div *ngIf="field.type === 'booleanField'">
+
+            <input type="checkbox" [(ngModel)]="field.property" name="field{{i}}" [disabled]="viewMode">
+
+            <span> {{field.label}}</span>
+
+        </div>
+
+    </div>
+
+    <input type="submit" value="Submit">
+        
+  </form>
+
+</div>

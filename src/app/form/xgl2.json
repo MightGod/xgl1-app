@@ -1,0 +1,176 @@
+{
+	"xgl": {
+		"wgdialog": {
+			"tabPanel": {
+				"tab": [{
+						"panel": [{
+								"fieldPanel": {
+									"fields": [{
+											"type": "booleanField",
+											"id": "FA_NR_Indicator",
+											"label": "NR Indicator",
+											"property": "NRIndicator"
+										},
+										{
+											"type": "booleanField",
+											"id": "",
+											"label": "DelNot Request",
+											"property": "delNotRequest"
+										},
+										{
+											"type": "textField",
+											"id": "FA_DelNotRequest",
+											"label": "DelNot Receiver DN",
+											"property": "delNotReceiverDN",
+											"maxChars": "100"
+										},
+										{
+											"type": "textField",
+											"id": "FA_DelNotRequestType",
+											"label": "DelNot Request Type",
+											"property": "delNotRequestType",
+											"maxChars": "30"
+										},
+										{
+											"type": "booleanField",
+											"id": "FA_RequireSignatureList",
+											"label": "Require SignatureList",
+											"property": "requireSignatureList"
+										}
+									],
+									"property": "FileActProtocolParameters"
+								},
+								"label": "SwiftNet"
+							},
+							{
+								"fieldPanel": {
+									"fields": [{
+											"type": "textField",
+											"id": "FA_File_Name",
+											"label": "File Name",
+											"property": "fileName",
+											"maxChars": "256"
+										},
+										{
+											"type": "textField",
+											"id": "FA_FileDescription",
+											"label": "File Description",
+											"property": "fileDescription",
+											"maxChars": "256"
+										},
+										{
+											"type": "textField",
+											"id": "FA_File_Info",
+											"label": "File Info",
+											"property": "fileInfo",
+											"maxChars": "256"
+										},
+										{
+											"type": "textField",
+											"id": "FA_Transfer_Info",
+											"label": "Transfer Info",
+											"property": "transferInfo",
+											"maxChars": "256"
+										},
+										{
+											"type": "textField",
+											"id": "FA_Transfer_Description",
+											"label": "Transfer Description",
+											"property": "transferDescription",
+											"maxChars": "256"
+										},
+										{
+											"type": "integerField",
+											"id": "FA_Total_Number_Of_Transactions",
+											"label": "Total Number of Transactions",
+											"property": "totalNumberOfTransactions",
+											"maxChars": "15"
+										}
+									],
+									"property": "FileActProtocolParameters"
+								},
+								"label": "Parameters"
+							}
+						],
+						"id": "FA_Panel",
+						"label": "FileAct"
+					},
+					{
+						"panel": [{
+								"fieldPanel": {
+									"fields": [{
+											"type": "booleanField",
+											"id": "IA_NR_Indicator",
+											"label": "NR Indicator",
+											"property": "NRIndicator"
+										},
+										{
+											"type": "booleanField",
+											"id": "IA_DelNotRequest",
+											"label": "DelNot Request",
+											"property": "delNotRequest"
+										},
+										{
+											"type": "textField",
+											"id": "IA_DelNotReceiverDN",
+											"label": "DelNot Receiver DN",
+											"property": "delNotReceiverDN",
+											"maxChars": "100"
+										},
+										{
+											"type": "textField",
+											"id": "IA_DelNotRequestType",
+											"label": "DelNot Request Type",
+											"property": "delNotRequestType",
+											"maxChars": "30"
+										},
+										{
+											"type": "booleanField",
+											"id": "IA_RequireSignatureList",
+											"label": "Require SignatureList",
+											"property": "requireSignatureList"
+										}
+									],
+									"property": "InterActProtocolParameters"
+								},
+								"label": "SwiftNet"
+							},
+							{
+								"fieldPanel": {
+									"fields": [{
+											"type": "textField",
+											"id": "IA_Requestor",
+											"label": "Requestor",
+											"property": "requestor",
+											"maxChars": "256"
+										},
+										{
+											"type": "textField",
+											"id": "IA_Responder",
+											"label": "Responder",
+											"property": "responder",
+											"maxChars": "256"
+										},
+										{
+											"type": "textField",
+											"id": "IA_Service",
+											"label": "Service",
+											"property": "service",
+											"maxChars": "256"
+										}
+									],
+									"property": "InterActProtocolParameters"
+								},
+								"label": "SwiftNetRoute"
+							}
+						],
+						"id": "IA_Panel",
+						"label": "InterAct"
+					}
+				],
+				"id": "tabPanel"
+			}
+		},
+		"name": "ServiceProfile"
+	}
+}

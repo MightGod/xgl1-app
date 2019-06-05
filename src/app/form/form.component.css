@@ -3,15 +3,15 @@
     color: red;
 }
 
-input, span
+input, span, p, div
 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 15px;
 }
 
-input[type=text], select 
+input[type=text], input[type=number]
 {
-    width: 40%;
+    width: 90%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -20,7 +20,7 @@ input[type=text], select
     box-sizing: border-box;
 }
   
-input[type=submit] 
+input[type=submit], input[type=button]
 {
     width: 150px;
     background-color: #4CAF50;
@@ -32,7 +32,13 @@ input[type=submit]
     cursor: pointer;
 } 
 
-input[type=submit]:hover 
+input[type=submit]:hover, input[type=button]:hover
 {
     background-color: #009900;
+}
+
+input[type=button]:disabled
+{
+    color: whitesmoke;
+    background-color: #dddddd;
 }
