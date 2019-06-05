@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as xgl from './xgl.json';
+import xgl from './xgl1.json';
 
 @Component({
   selector: 'app-form',
@@ -15,7 +15,7 @@ export class FormComponent implements OnInit
   ngOnInit()
   {
     this.fieldPanel = xgl.wgdialog.fieldPanel;
-    console.log(this.fieldPanel.textField);
+    console.log(this.fieldPanel.fields);
   }
 
   public submitForm(isValid : boolean) : void

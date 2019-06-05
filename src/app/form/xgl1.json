@@ -1,0 +1,57 @@
+{
+  "name": "Customer",
+  "wgdialog": {
+    "fieldPanel": {
+      "fields": [
+        {
+          "type": "textField",
+          "required": "true",
+          "id": "customerID",
+          "label": "Customer ID",
+          "property": "customerID",
+          "maxChars": "60"
+        },
+        {
+          "type": "textField",
+          "required": "true",
+          "label": "Customer Name",
+          "property": "customerName",
+          "maxChars": "60"
+        },
+        {
+          "type": "textField",
+          "label": "Customer GUID",
+          "property": "customerGUID",
+          "maxChars": "60"
+        },
+        {
+          "type": "textField",
+          "required": "true",
+          "label": "Cost Center",
+          "property": "costCenter",
+          "maxChars": "11"
+        },
+        {
+          "type": "booleanField",
+          "label": "Save OFAC Response",
+          "property": "saveOFACResponse"
+        },
+        {
+          "type": "booleanField",
+          "label": "Hits handled in OFAC Application",
+          "property": "hitsHandledInOFACApplication"
+        },
+        {
+          "type": "booleanField",
+          "label": "NetPack Future Mode",
+          "property": "netPackFutureMode"
+        },
+        {
+          "type": "booleanField",
+          "label": "Active",
+          "property": "active"
+        }
+      ]
+    }
+  }
+}

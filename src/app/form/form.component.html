@@ -1,24 +1,27 @@
-
 <form #f="ngForm" (ngSubmit)="submitForm(f.valid)">
 
-  <div *ngFor="let textField of fieldPanel.textField; index as i">
+  <div *ngFor="let field of fieldPanel.fields; index as i">
 
-      <input type="text" [placeholder]="textField.label" [required]="textField.required" [(ngModel)]="textField.property" name="textField{{i}}" [maxlength]="textField.maxChars" [disabled]="viewMode">
+      <div *ngIf="field.type === 'textField'">
 
-      <span class="error" *ngIf="textField.required && !textField.property"> Must enter a value.</span>
+          <input type="text" [placeholder]="field.label" [required]="field.required" [(ngModel)]="field.property" name="field{{i}}" [maxlength]="field.maxChars" [disabled]="viewMode">
 
-      <span class="error" *ngIf="textField.property.length > textField.maxChars"> Maximum size is {{textField.maxChars}} (Delete {{textField.property.length - textField.maxChars}} letters).</span>
+          <span class="error" *ngIf="field.required && !field.property"> Must enter a value.</span>
+    
+          <span class="error" *ngIf="field.property.length > field.maxChars"> Maximum size is {{field.maxChars}} (Delete {{field.property.length - field.maxChars}} letters).</span>
+
+      </div>
+
+      <div *ngIf="field.type === 'booleanField'">
+
+          <input type="checkbox" [(ngModel)]="field.property" name="field{{i}}" [disabled]="viewMode">
+
+          <span> {{field.label}}</span>
+
+      </div>
 
    </div>
 
-    <div *ngFor="let booleanField of fieldPanel.booleanField; index as i">
-        
-        <input type="checkbox" [(ngModel)]="booleanField.property" name="booleanField{{i}}" [disabled]="viewMode">
-        <span> {{booleanField.label}}</span>
-
-    </div>
-  
-    <input type="submit" value="Submit">
+  <input type="submit" value="Submit">
       
-  </form>
-
+</form>
